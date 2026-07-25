@@ -1,17 +1,19 @@
+/*declaration*/
 const page1btn = document.querySelector("#page1btn");
 const page2btn = document.querySelector("#page2btn");
+const page3btn = document.querySelector("#page3btn");
 var allpages = document.querySelectorAll(".page");
 
-// Select all subtopic pages
+//hide the subtopic content
 function hideall() {
     for (let onepage of allpages) {
-        onepage.style.display = "none";
+        onepage.style.display = "none"; //hide page
     }
 }
 
+// Function to show selected page
 let currentPage = 0;
 
-// Function to show selected page
 function show(pgno) {
 
     // If the page is already open, close it
@@ -28,34 +30,105 @@ function show(pgno) {
     currentPage = pgno;
 }
 
-// Listen for button clicks
-page1btn.addEventListener("click", function () {
-    show(1);
-});
+//open the content
+const menu = document.querySelector("#menu");
 
-page2btn.addEventListener("click", function () {
-    show(2);
+menu.addEventListener("click", function(event) {
+
+    if(event.target.id == "page1btn"){
+        show(1);
+    }
+
+    else if(event.target.id == "page2btn"){
+        show(2);
+    }
+
+    else if(event.target.id == "page3btn"){
+        show(3);
+    }
+
 });
 
 // Hide all pages when the website first loads
 hideall();
 
-// Get the "Open Menu" button
-const hamBtn = document.querySelector("#hamIcon");
+//c note audio 
+const Caudio = document.getElementById("CnoteAudio");
+const CnoteBtn = document.getElementById("CnoteBtn");
 
-// Get the menu list
-const menuItemsList = document.querySelector("nav ul");
+CnoteBtn.addEventListener("click", function () {
 
-// Connect button to toggleMenus function
-hamBtn.addEventListener("click", toggleMenus);
+    CnoteBtn.classList.add("playing");
 
-// Toggle the navigation menu
-function toggleMenus() {
-    if (menuItemsList.classList.contains("menuShow")) {
-        menuItemsList.classList.remove("menuShow");
-        hamBtn.innerHTML = "Open Menu";
-    } else {
-        menuItemsList.classList.add("menuShow");
-        hamBtn.innerHTML = "Close Menu";
-    }
+    Caudio.currentTime = 0;
+    Caudio.play();
+
+    setTimeout(function () {
+        CnoteBtn.classList.remove("playing");
+    }, 500);
+
+});
+//G note
+const Gaudio = document.getElementById("GnoteAudio");
+const GnoteBtn = document.getElementById("GnoteBtn");
+
+GnoteBtn.addEventListener("click", function () {
+
+    GnoteBtn.classList.add("playing");
+
+    Gaudio.currentTime = 0;
+    Gaudio.play();
+
+    setTimeout(function () {
+        GnoteBtn.classList.remove("playing");
+    }, 500);
+
+});
+
+//F note
+const Faudio = document.getElementById("FnoteAudio");
+const FnoteBtn = document.getElementById("FnoteBtn");
+
+FnoteBtn.addEventListener("click", function () {
+
+    FnoteBtn.classList.add("playing");
+
+    Faudio.currentTime = 0;
+    Faudio.play();
+
+    setTimeout(function () {
+        FnoteBtn.classList.remove("playing");
+    }, 500);
+
+});
+//quiz
+const btnSubmit=document.querySelector("#btnSubmit");
+btnSubmit.addEventListener("click",CheckAns);
+const scorebox=document.querySelector("#scorebox");
+var q1,q2,q3,score=0;
+function CheckAns(){
+score=0; //reset score to 0, check ans and give score if correct
+//read the value of the selected radio button for q1
+q1=document.querySelector("input[name='q1']:checked").value;
+console.log(q1); //check q1 value retrieved
+if(q1=="F")score++;
+//read the value of the selected radio button for q2
+q2=document.querySelector("input[name='q2']:checked").value;
+console.log(q2); //check q2 value retrieved
+if(q2=="G")score++;
+q3=document.querySelector("input[name='q3']:checked").value;
+console.log(q3); //check q2 value retrieved
+if(q3=="C")score++;
+scorebox.innerHTML="Score: "+score;
+/*time out*/
+setTimeout(function(){
+    scorebox.innerHTML += "<br>Thanks for playing!";
+},1000);
 }
+
+// Hamburger menu
+const hamIcon = document.querySelector("#hamIcon");
+
+hamIcon.addEventListener("click", function () {
+    menu.classList.toggle("showMenu");
+});
