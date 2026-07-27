@@ -14,6 +14,7 @@ body {
     src: url("fonts/MDGroteskRegular.woff");
 }
 
+
 /*menu buttons and its content*/
 
 
@@ -84,6 +85,13 @@ legend{
     margin: 30px auto;
     padding: 20px;
 	text-align:center;}
+.creds {
+    display: flex;
+    justify-content: center;
+	font-family: MDGroteskRegular;
+	color:white;
+	
+}
 	
 nav ul{
     display: flex;
