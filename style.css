@@ -1,0 +1,211 @@
+/*---------------------------
+-----------LAPTOP-----------*/
+/*colour page*/
+body {
+    background-color: #424874;
+    color: black;
+    font-family: MDGroteskRegular;
+}
+
+
+/* font */
+@font-face {
+    font-family: MDGroteskRegular;
+    src: url("fonts/MDGroteskRegular.woff");
+}
+
+
+/*menu buttons and its content*/
+
+
+nav{padding-top:40px;}
+
+nav ul li{display:inline;}
+
+.index{
+    position: relative;
+}
+
+#QR{
+    position: absolute;
+    top: 5px;
+    right: 30px;
+   
+}
+
+#code{display:block;
+	text-align:right;
+	margin-top:60px;}
+
+/*PAGE 1*/
+#page1{background:#A6B1E1;}
+#page1btn{background:#A6B1E1;
+		  font-family: "MDGroteskRegular";
+		  border: 2px solid white;
+		  font-size: 20px;}
+
+
+/*PAGE 2*/
+#page2{background:#ccc5ed;}
+#page2btn{background:#ccc5ed;
+		 font-family: "MDGroteskRegular";
+		  border: 2px solid white;
+		   font-size: 20px;}
+
+/*PAGE 3*/
+#page3{background:#e6dcf7;}
+
+#page3btn{background:#e6dcf7;
+		 font-family: "MDGroteskRegular";
+		  border: 2px solid white;
+		   font-size: 20px;}
+.Gamebtn{background:#a89fcf;
+		 font-family: "MDGroteskRegular";
+		  border: 2px solid white;
+		font-size:19px;}
+
+.playing{
+    background-color:#6d6396;}
+	
+fieldset{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 20px;
+}
+legend{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/*GENERAL*/
+.page{
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+	text-align:center;}
+.creds {
+    display: flex;
+    justify-content: center;
+	font-family: MDGroteskRegular;
+	color:white;
+	
+}
+	
+nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+/*TEXT ALIGNMENT AND STUFF*/
+  p{ font-size:20px;color:white;}
+  h3{ font-size:20px;}
+  
+/* Main section text */
+header h1,
+.pianomain h2,
+.pianomain h3,
+.pianomain p{
+    color: #e8e9eb;
+text-align:center;}
+
+
+/* Subtopic pages */
+.page h2,
+.page h3,
+.page p{
+    color: black;
+}
+
+.pianomain{background:#545c91;
+		padding-top:4px;
+		padding-bottom:4px;}
+/*hide show menu*/
+#hamIcon{display:none;}
+/*images*/
+
+
+	
+img{
+    display: block;
+    margin: 20px auto;
+}
+
+/*animate header*/
+@keyframes slideIn{
+
+    0%{
+        transform:translateX(-500px);
+        opacity:0;
+    }
+
+    80%{
+        transform:translateX(20px);
+    }
+
+    100%{
+        transform:translateX(0);
+        opacity:1;
+    }
+
+}
+
+header h1{
+    animation: slideIn 1.5s ease-out;
+}
+/*make button abit bigger when clicked*/
+button{
+    transition: background-color 0.3s ease,
+                transform 0.2s ease;
+}
+
+button:hover{
+    transform: scale(1.05);
+}
+/*CSS for responsive menu*/
+
+@media (max-width: 800px){
+#hamIcon{
+    display:block;
+    width:70%;
+    padding:12px;
+    font-size:20px;
+	margin:20px auto;
+	background:#545c91;
+	font-family: "MDGroteskRegular";
+	color:white;
+}
+
+nav ul{
+    display:none;
+	text-align:center;
+	color:white;
+}
+
+nav ul.showMenu{
+    display:flex;
+}
+
+fieldset{
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.page{
+    width:95%;
+}
+
+nav{padding-top:0px;}
+
+/*hide qr code*/
+#QR{display:none;}
+#code{display:none;}
+
+
+}
